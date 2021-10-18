@@ -3,9 +3,10 @@ import { Button, LoadingAnimation } from "@coalmines/indui";
 import { useFilePicker } from "use-file-picker";
 import wasm from "./main.go";
 import UEFIImage from "./UEFIImage";
+import AMDImage from "./AMDImage";
 import colors from "./util/colors";
 
-const { fmap, utka } = wasm;
+const { fmap, utka, amdana } = wasm;
 
 const Analyze = () => {
   const [error, setError] = useState(null);
@@ -28,11 +29,13 @@ const Analyze = () => {
     try {
       const res = await Promise.allSettled([
         fmap(indata, size),
-        utka(indata, size),
+        Promise.resolve(`{}`), // utka(indata, size),
+        amdana(indata, size),
       ]);
       setData({
         fmap: JSON.parse(res[0].value),
         utk: res[1].status === "fulfilled" ? JSON.parse(res[1].value) : {},
+        amd: res[2].status === "fulfilled" ? JSON.parse(res[2].value) : [],
       });
       res.forEach((r) => {
         if (r.status === "rejected") {
@@ -73,7 +76,8 @@ const Analyze = () => {
           <pre>{JSON.stringify(error, null, 2)}</pre>
         </p>
       )}
-      {data && <UEFIImage data={data.utk} fmap={data.fmap} name={fileName} />}
+      {/*<UEFIImage data={data.utk} fmap={data.fmap} name={fileName} />*/}
+      {data && <AMDImage data={data.amd} fmap={data.fmap} name={fileName} />}
       <style jsx>{`
         .error {
           max-width: 420px;
