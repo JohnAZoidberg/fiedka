@@ -9,7 +9,7 @@ require (
 
 require (
 	github.com/9elements/converged-security-suite/v2 v2.6.0 // indirect
-	github.com/orangecms/converged-security-suite/v2 v2.4.1-0.20211018211734-a9bcfb267f3f // indirect
+	github.com/orangecms/converged-security-suite/v2 v2.4.1-0.20211018215105-ad3a37e3d9e7 // indirect
 )
 
-replace github.com/9elements/converged-security-suite/v2 => github.com/orangecms/converged-security-suite/v2 v2.4.1-0.20211018211734-a9bcfb267f3f
+replace github.com/9elements/converged-security-suite/v2 => github.com/orangecms/converged-security-suite/v2 v2.4.1-0.20211018215105-ad3a37e3d9e7

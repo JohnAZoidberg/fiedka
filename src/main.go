@@ -10,9 +10,9 @@ import (
 	"io"
 	"syscall/js"
 
-	amd "github.com/9elements/converged-security-suite/v2/pkg/amd/manifest"
 	"github.com/happybeing/webpack-golang-wasm-async-loader/gobridge"
 	"github.com/linuxboot/fiano/pkg/uefi"
+	amd "github.com/orangecms/converged-security-suite/v2/pkg/amd/manifest"
 )
 
 const (
