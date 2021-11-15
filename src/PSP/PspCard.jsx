@@ -220,7 +220,7 @@ const PspCard = ({ psp, open = true }) => {
             </tr>
             <tr>
               <th>hash</th>
-              <td>{md5}</td>
+              <td>{md5.substr(0, 8)}</td>
             </tr>
             <tr>
               <th>size</th>
