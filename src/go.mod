@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/happybeing/webpack-golang-wasm-async-loader/gobridge v0.0.0-20201126150039-3d18007626dd
 	github.com/linuxboot/fiano v1.0.1
-	github.com/orangecms/converged-security-suite v1.0.1
+	github.com/orangecms/converged-security-suite v1.0.2
 )
 
 require (
@@ -14,4 +14,4 @@ require (
 	golang.org/x/text v0.3.6 // indirect
 )
 
-replace github.com/9elements/converged-security-suite/v2 => github.com/orangecms/converged-security-suite v1.0.1
+replace github.com/9elements/converged-security-suite/v2 => github.com/orangecms/converged-security-suite v1.0.2
