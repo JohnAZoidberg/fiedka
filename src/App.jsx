@@ -63,16 +63,16 @@ const Analyze = () => {
     try {
       const res = await Promise.allSettled([
         fmap(indata, size),
-        Promise.resolve(`{}`), // utka(indata, size),
+        Promise.reject("Skipping UEFI analysis"), // utka(indata, size),
         amdana(indata, size),
       ]);
       setData({
         fmap: JSON.parse(res[0].value),
-        uefi: res[1].status === "fulfilled" ? JSON.parse(res[1].value) : {},
-        amd: res[2].status === "fulfilled" ? JSON.parse(res[2].value) : [],
+        uefi: res[1].status === "fulfilled" ? JSON.parse(res[1].value) : null,
+        amd: res[2].status === "fulfilled" ? JSON.parse(res[2].value) : null,
       });
       res.forEach((r) => {
-        if (r.status === "rejected") {
+        if (r.status === "rejected" && r.reason) {
           console.error(r.reason);
           setError((errors || []).concat([r.reason]));
         }
