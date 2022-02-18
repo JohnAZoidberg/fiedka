@@ -1,7 +1,11 @@
 name: "Test"
 on:
   pull_request:
+    paths:
+      - 'shell.nix'
   push:
+    paths:
+      - 'shell.nix'
 jobs:
   tests:
     runs-on: ubuntu-latest
